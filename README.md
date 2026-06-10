@@ -1,6 +1,4 @@
-# Geomarketing-Analysis-
-
-Project Title: Geomarketing Analysis MVP for MiPymes in Mexico City
+# Geomarketing Analysis MVP for MiPymes in Mexico City
 
 Overview: This project presents a Minimum Viable Product (MVP) for a geomarketing analysis tool designed to empower Micro, Small, and Medium-sized Enterprises (MiPymes) in Mexico City. Leveraging real-world business data from Mexico's National Institute of Statistics and Geography (INEGI), this interactive application provides data-driven insights for strategic decision-making in market entry, competitive analysis, and location optimization.
 
