@@ -1,0 +1,7 @@
+geopandas==1.1.3
+folium==0.20.0
+requests==2.32.4
+streamlit
+streamlit-folium
+ngrok
+pyngrok
