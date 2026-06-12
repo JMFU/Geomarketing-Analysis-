@@ -1,31 +1,116 @@
 # Geomarketing Analysis MVP for MiPymes in Mexico City
 
-Overview: This project presents a Minimum Viable Product (MVP) for a geomarketing analysis tool designed to empower Micro, Small, and Medium-sized Enterprises (MiPymes) in Mexico City. Leveraging real-world business data from Mexico's National Institute of Statistics and Geography (INEGI), this interactive application provides data-driven insights for strategic decision-making in market entry, competitive analysis, and location optimization.
+![Project Banner](https://via.placeholder.com/1200x400?text=Geomarketing+Analysis+Banner) <!-- Replace with an actual project banner/screenshot -->
 
-Key Features:
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Problem Statement](#problem-statement)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Deployment](#deployment)
+- [How to Run Locally](#how-to-run-locally)
+- [Usage](#usage)
+- [Actionable Insights](#actionable-insights)
+- [Future Enhancements](#future-enhancements)
+- [Contact](#contact)
+- [License](#license)
 
-Dynamic Data Retrieval: Utilizes the INEGI DENUE API to fetch up-to-date business establishment data based on customizable search parameters (business type, location, radius).
-Spatial Density Analysis: Implements a grid-based spatial aggregation technique (using geopandas and shapely) to visualize business concentration via choropleth maps, helping identify high-competition areas and potential market gaps.
-Interactive Mapping: Integrates folium and streamlit-folium to create interactive maps, allowing users to explore overall business distribution, density layers, and individual establishment details.
-Advanced Filtering: Enables granular analysis through filters for Clase_actividad (business activity) and Estrato (business size), facilitating targeted competitive intelligence.
-Actionable Insights Generation: Provides clear, comprehensive insights on market saturation, competitive intensity, and optimal location strategies, derived directly from the spatial analysis.
-Streamlit Application: Packaged as an intuitive web application using Streamlit, making complex geospatial analysis accessible to non-technical users.
-Technical Stack:
+## Project Overview
+This project presents a Minimum Viable Product (MVP) of a geomarketing analysis tool specifically designed for Micro, Small, and Medium-sized Enterprises (MiPymes) in Mexico City. Leveraging official INEGI (Instituto Nacional de Estadística y Geografía) business data, this Streamlit application empowers businesses to make data-driven decisions for market strategy, expansion, and competitive positioning.
 
-Python: Core programming language.
-Libraries: pandas, numpy, requests, geopandas, shapely, folium, streamlit, streamlit-folium, pyngrok (for deployment).
-APIs: INEGI DENUE API.
-Geospatial Tools: EPSG:4326 (WGS84) and EPSG:6372 (Mexico City projected CRS) for accurate calculations.
-Deployment: ngrok for exposing the Streamlit app temporarily.
-Why this matters for MiPymes: In a competitive urban landscape like Mexico City, intelligent location and market understanding are paramount. This tool provides MiPymes with a cost-effective, powerful solution to:
+The interactive web application allows users to search for specific business types within a defined radius, visualize business density, and filter results based on activity and size. It provides a powerful framework for identifying market saturation, uncovering underserved areas, and understanding competitive landscapes.
 
-Identify underserved areas for expansion.
-Understand competitive landscapes for specific business types.
-Optimize site selection for new ventures.
-Develop targeted marketing strategies.
-Future Enhancements:
+## Problem Statement
+MiPymes often lack the resources and expertise to conduct comprehensive market research. This can lead to suboptimal decisions regarding business location, expansion, and competitive strategy. Traditional market analysis can be costly and time-consuming, creating a significant barrier for smaller businesses aiming for growth and sustainable development.
 
-Integration of additional demographic and socioeconomic data.
-Predictive modeling for market demand.
-User authentication and persistent data storage.
-Enhanced UI/UX features.
+This tool addresses these challenges by providing an accessible, interactive, and data-driven solution to visualize and analyze local business ecosystems.
+
+## Features
+-   **Customizable Search Parameters**: Define business type, central latitude/longitude, and search radius.
+-   **Interactive Business Density Map**: Visualize the concentration of businesses using a choropleth map, highlighting areas of high competition and potential market gaps.
+-   **Individual Business Locations**: Display specific business locations with detailed information via interactive markers.
+-   **Dynamic Filtering**: Filter businesses by `Clase_actividad` (business activity) and `Estrato` (business size) to refine market analysis.
+-   **Actionable Insights Report**: Provides a summary of insights derived from the analysis, guiding strategic decision-making.
+-   **User-Friendly Interface**: Built with Streamlit for an intuitive and interactive user experience.
+
+## Technologies Used
+-   **Python**: Core programming language.
+-   **Streamlit**: For creating interactive web applications.
+-   **GeoPandas**: For handling geospatial data (GeoDataFrames).
+-   **Folium**: For creating interactive maps and visualizations.
+-   **Shapely**: For geometric operations.
+-   **NumPy**: For numerical operations.
+-   **Pandas**: For data manipulation and analysis.
+-   **Requests**: For consuming the INEGI DENUE API.
+
+## Deployment
+This application is deployed on Streamlit Community Cloud for easy access. You can view the live application here:
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_app_badge.svg)](YOUR_STREAMLIT_APP_URL) <!-- Replace YOUR_STREAMLIT_APP_URL with your actual Streamlit deployment URL -->
+
+**API Key Management**: The INEGI API token is securely managed using Streamlit's `st.secrets` feature, ensuring that sensitive credentials are not exposed in the codebase.
+
+## How to Run Locally
+To run this project on your local machine, follow these steps:
+
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-username/Geomarketing_MiPymes_MexicoCity.git
+    cd Geomarketing_MiPymes_MexicoCity
+    ```
+
+2.  **Create a virtual environment (recommended)**:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
+
+3.  **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Set up your INEGI API Token**:
+    Create a directory named `.streamlit` in the root of your project, and inside it, create a file named `secrets.toml`. Add your INEGI API token to this file:
+    ```toml
+    # .streamlit/secrets.toml
+    TOKEN = "YOUR_INEGI_API_TOKEN"
+    ```
+    Replace `"YOUR_INEGI_API_TOKEN"` with your actual token.
+
+5.  **Run the Streamlit application**:
+    ```bash
+    streamlit run app.py
+    ```
+    The application will open in your default web browser.
+
+## Usage
+1.  **Customize Search Parameters**: Use the sidebar to enter the desired business type (e.g., "cafeterias", "restaurantes"), latitude, longitude, and search radius in meters.
+2.  **Run Search and Analysis**: Click the "Run Search and Analysis" button to fetch data and generate the maps.
+3.  **Filter Businesses**: After the initial search, use the second section in the sidebar to filter businesses by 'Activity' and 'Size (Estrato)'.
+4.  **Explore Maps**: Interact with the map on the main screen to zoom, pan, and toggle layers (e.g., business density, all businesses, filtered businesses).
+5.  **Review Insights**: Read the "Actionable Insights" section for interpretations and recommendations based on the displayed data.
+
+## Actionable Insights
+This tool provides valuable insights for MiPymes:
+-   **Market Gap Identification**: Lighter areas on the density map indicate potential underserved markets, ideal for new ventures.
+-   **Competitive Analysis**: Darker areas signify high competition, prompting strategies for differentiation.
+-   **Optimal Location**: Combine density and filtered views to pinpoint strategic locations for new establishments or expansions.
+-   **Niche Market Identification**: Filter by specific activities to find areas with less competition for specialized businesses.
+
+## Future Enhancements
+-   **Time-Series Analysis**: Incorporate historical data (if available) to analyze trends and seasonality.
+-   **Predictive Modeling**: Implement models for sales forecasting or optimal location prediction.
+-   **Integration with Other Data Sources**: Include demographic data, consumer spending patterns, or foot traffic data.
+-   **Advanced Filtering**: Add more sophisticated filtering options, such as proximity to landmarks or transportation.
+-   **User Accounts and Saved Searches**: Allow users to save their search configurations and results.
+-   **Performance Optimization**: Optimize geospatial operations for larger datasets.
+
+## Contact
+If you have any questions or feedback, feel free to reach out:
+-   **Your Name/Alias**: [Your Name]
+-   **LinkedIn**: [Your LinkedIn Profile URL]
+-   **Email**: [Your Email Address]
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
