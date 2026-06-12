@@ -46,7 +46,7 @@ This tool addresses these challenges by providing an accessible, interactive, an
 ## Deployment
 This application is deployed on Streamlit Community Cloud for easy access. You can view the live application here:
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_app_badge.svg)](YOUR_STREAMLIT_APP_URL) <!-- Replace YOUR_STREAMLIT_APP_URL with your actual Streamlit deployment URL -->
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_app_badge.svg)](https://geomarketinganalysis.streamlit.app/) <!-- Replace YOUR_STREAMLIT_APP_URL with your actual Streamlit deployment URL -->
 
 **API Key Management**: The INEGI API token is securely managed using Streamlit's `st.secrets` feature, ensuring that sensitive credentials are not exposed in the codebase.
 
@@ -55,8 +55,8 @@ To run this project on your local machine, follow these steps:
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/Geomarketing_MiPymes_MexicoCity.git
-    cd Geomarketing_MiPymes_MexicoCity
+    git clone https://github.com/your-username/Geomarketing-Analysis-.git
+    cd Geomarketing-Analysis-
     ```
 
 2.  **Create a virtual environment (recommended)**:
@@ -108,9 +108,9 @@ This tool provides valuable insights for MiPymes:
 
 ## Contact
 If you have any questions or feedback, feel free to reach out:
--   **Your Name/Alias**: [Your Name]
--   **LinkedIn**: [Your LinkedIn Profile URL]
--   **Email**: [Your Email Address]
+-   **Your Name/Alias**: [JMFU]
+-   **LinkedIn**: [https://www.linkedin.com/in/jmartinfu/]
+-   **Email**: [jmartinfu@outlook.es]
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
