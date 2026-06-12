@@ -1,3 +1,13 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+import geopandas as gpd
+from shapely.geometry import Point, Polygon
+import folium
+from folium.plugins import MarkerCluster, HeatMap
+from streamlit_folium import st_folium
+import requests
+
 st.set_page_config(layout="wide")
 st.title("Geomarketing Analysis MVP for MiPymes in Mexico City")
 st.write("This application helps MiPymes (Micro, Small, and Medium-sized Enterprises) in Mexico City make data-driven decisions for market strategy, expansion, and competitive positioning.")
@@ -5,17 +15,8 @@ st.write("This application helps MiPymes (Micro, Small, and Medium-sized Enterpr
 
 # --- CONFIGURACIÓN Y FUNCIONES ---
 
-# Retrieve TOKEN securely from Streamlit secrets (or Colab userdata for development)
-# In a deployed Streamlit app, use st.secrets["TOKEN"]
-# For local Colab development, use userdata.get('TOKEN')
-
-# NOTE: For Streamlit deployment, replace userdata.get('TOKEN') with st.secrets['TOKEN']
-# To set up st.secrets, create a .streamlit/secrets.toml file in your app's directory.
-# Example secrets.toml:
-# TOKEN = "your_inegi_api_token"
-
-# For this Colab environment, we'll use the already set TOKEN
-TOKEN = userdata.get('TOKEN')
+# Retrieve TOKEN securely from Streamlit secrets
+TOKEN = st.secrets['TOKEN']
 
 def consultar_denue(token, condicion, lat, lon, metros):
     url = f"https://www.inegi.org.mx/app/api/denue/v1/consulta/Buscar/{condicion}/{lat},{lon}/{metros}/{token}"
@@ -177,7 +178,6 @@ if 'gdf_negocios' in st.session_state and not st.session_state['gdf_negocios'].e
     st.subheader("Interactive Geomarketing Map")
     st.write("Explore business density and individual business locations.")
 
-    # Use st.columns to display map and filtered info side-by-side if desired
     col1, col2 = st.columns([3, 1])
 
     with col1:
